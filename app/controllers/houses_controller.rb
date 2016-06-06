@@ -30,16 +30,16 @@ class HousesController < ApplicationController
 
   def add_member
     @user = User.find(current_user.id)
-    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    p @user
     @new_member = User.find_by(username: params[:name])
-    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    p @user
     @house = @user.house
-    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-    p @user
-    # if @new_member && @new_member.
-
+    if @new_member && @new_member.house_id == nil
+      @new_member.house_id = @house.id
+      @new_member.save
+      render json: { new_member: @new_member }
+    else
+      @errors = "User does not exit or already part of a house!"
+      render json: { errors: @errors}
+    end
   end
 
   private

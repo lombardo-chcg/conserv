@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def index
-
-  end
-
   def new
     @user = User.new
   end
@@ -19,8 +15,10 @@ class UsersController < ApplicationController
     end
   end
 
-  # def show
-  # end
+  def show
+    @user = User.find(current_user.id)
+    render json: { url: @user.email }
+  end
 
   # def edit
   # end

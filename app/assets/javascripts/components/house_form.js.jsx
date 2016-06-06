@@ -11,7 +11,7 @@ var HouseForm = React.createClass({
         var errors = response.errors
         $(".errors").append(`<li> ${errors} </li>`)
       } else {
-        this.props.onAction('house')
+        this.props.onAction('house', {houseMember: true})
       }
     }.bind(this));
   },

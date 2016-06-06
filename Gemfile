@@ -32,6 +32,8 @@ gem 'rails_12factor', group: :production
 gem 'firebase'
 gem 'sprockets_better_errors'
 
+gem 'gravatarify', '~> 3.0.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

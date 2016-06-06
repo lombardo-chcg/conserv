@@ -4,6 +4,7 @@ var App = React.createClass({
       screen: "login",
       userLoggedIn: false,
       currentUserID: undefined,
+      houseMember: false
     }
   },
 
@@ -35,10 +36,12 @@ var App = React.createClass({
         return <Login onAction={this.updateView} />
       case "main":
         if (this.state.userLoggedIn === true) {
-          return <HomePage />
-        } else { return <Login /> }
+          return <HomePage onAction={this.updateView}/>
+        } else { return <Login onAction={this.updateView} /> }
       case "register":
         return <Register onAction={this.updateView} />
+      case "userShow":
+        return <UserShow onAction={this.updateView} />
       case "claimEvent":
         return <ClaimEvent onAction={this.updateView} />
       case "lineGraph":
@@ -47,10 +50,12 @@ var App = React.createClass({
         return <PieGraph onAction={this.updateView} />
       case "barGraph":
         return <BarGraph onAction={this.updateView} />
-      case "houseForm":
-        return <HouseForm onAction={this.updateView} />
       case "house":
+      if (this.state.houseMember === true) {
         return <House onAction={this.updateView} />
+      } else {
+        return <HouseForm onAction={this.updateView} />
+      }
       case "logout":
         this.logout()
     }

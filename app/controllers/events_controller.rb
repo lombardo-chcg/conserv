@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    all_events = Event.where(device_owner_id: current_user.id)
+    all_events = Event.where(device_id: 1)
     # need to add column to DB  to link a device to a user
     # device_owner_id = current_user.id
     unclaimed_events = all_events.where(event_claimer_id: nil)

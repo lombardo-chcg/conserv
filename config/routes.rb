@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get '/' => 'pages#index'
   get '/users/new' => 'users#new'
   post '/users' => 'users#create'
+  get '/users/show' => 'users#show'
+
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   # resources :users

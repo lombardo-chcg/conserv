@@ -22,7 +22,6 @@ var NavBar = React.createClass ({
             <li><a onClick={this.handleClick.bind(null, "lineGraph")} >lineGraph </a></li>
             <li><a onClick={this.handleClick.bind(null, "pieGraph")} >pieGraph </a></li>
             <li><a onClick={this.handleClick.bind(null, "barGraph")} >barGraph</a></li>
-            <li><a onClick={this.handleClick.bind(null, "houseForm")} >Join House</a></li>
             <li><a onClick={this.handleClick.bind(null, "house")} >House</a></li>
             <li><a href="collapsible.html">Settings</a></li>
             <li><a href="mobile.html">Invite Friends</a></li>

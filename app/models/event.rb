@@ -4,13 +4,14 @@ class Event < ActiveRecord::Base
   # include EventModule
   require 'firebase'
 
+  belongs_to :device
   belongs_to :user
 
   def create_events(incoming_user_id)
     events = get_event_groups
     events.each do |event_array|
       Event.create(
-        device_owner_id: incoming_user_id,
+        device_id: 1,
         points: event_array.length,
         start_time: DateTime.strptime(event_array[0][1]['time'], "%Y: %m: %d: %T"),
         end_time: DateTime.strptime(event_array[-1][1]['time'], "%Y: %m: %d: %T"),)

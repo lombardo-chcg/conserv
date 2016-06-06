@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-
+  belongs_to :device
   belongs_to :house
   has_many  :events
 

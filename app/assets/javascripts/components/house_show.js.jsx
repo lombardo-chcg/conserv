@@ -15,7 +15,7 @@ var House = React.createClass({
   },
 
   handleFormSubmit: function(event){
-    event.preventDefautl();
+    event.preventDefault();
     data = $(event.target).serialize();
     $.ajax({
       url: '/houses/add',
@@ -28,7 +28,7 @@ var House = React.createClass({
     if (this.state.data != undefined) {
       return (
       <div className="house-info">
-
+        <PieGraph />
         <h3> { this.state.data.data[0].house_name } </h3>
         <h5> Current Members: </h5>
         <ul>
